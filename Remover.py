@@ -2,7 +2,6 @@ import os
 import sys
 import tqdm
 import wget
-import gdown
 import torch
 import shutil
 import base64
@@ -77,9 +76,7 @@ class Remover:
                     download = True
 
             if download:
-                if 'drive.google.com' in self.meta.url:
-                    gdown.download(self.meta.url, os.path.join(ckpt_dir, ckpt_name), fuzzy=True, proxy=self.meta.http_proxy)
-                elif 'github.com' in self.meta.url:
+                if 'github.com' in self.meta.url:
                     wget.download(self.meta.url, os.path.join(ckpt_dir, ckpt_name))
                 else:
                     raise NotImplementedError('Please use valid URL')
