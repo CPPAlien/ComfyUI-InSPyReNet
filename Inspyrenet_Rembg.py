@@ -1,7 +1,7 @@
 from PIL import Image
 import torch
 import numpy as np
-from .Remover import Remover
+from transparent_background import Remover
 from tqdm import tqdm
 import folder_paths
 
